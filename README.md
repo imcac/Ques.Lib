@@ -3,7 +3,9 @@
 通过反射对实体类进行赋值以及循环绑定操作，目前主要作用于Asp.net+WebService
 
 常规用法 主要内容是Mapping类中的两个静态方法，以及在Web.Config中加入
-<add key="ModelMapping" value="Your.Model"/>(Your.Model为反射的DLL文件或者命名空间)。
+
+        <add key="ModelMapping" value="Your.Model"/>
+(Your.Model为反射的DLL文件或者命名空间)。
 
 取值：
 
