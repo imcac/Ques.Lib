@@ -2,7 +2,18 @@
 
 通过反射对实体类进行赋值以及循环绑定操作，目前主要作用于Asp.net+WebService
 
-常规用法 主要内容是Mapping类中的两个静态方法。
+常规用法 主要内容是Mapping类中的两个静态方法，以及在Web.Config中加入
+<add key="ModelMapping" value="Your.Model"/>(Your.Model为反射的DLL文件或者命名空间)。
+
+取值：
+
+        JsonParamsHelper jsonPH = new JsonParamsHelper(HttpContext.Current.Server.UrlDecode(postParams));
+        OrderInfo model = (OrderInfo)Mapping.ConvertJson2Model(typeof(OrderInfo), jsonPH);
+绑定：
+
+        Mapping.BindFormData(this, model, typeof(OrderInfo));
+        
+        
 
 form表单（表单Name以及Id需要对应实体类的属性，如需使用该工具进行绑定，请给input加入runat="server"）：
 
